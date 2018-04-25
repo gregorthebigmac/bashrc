@@ -1,3 +1,8 @@
+# user-made functions
+function scan() {
+	sudo arp-scan --interface "$1" --localnet;
+}
+
 # user-made aliases are below
 alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
