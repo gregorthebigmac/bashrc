@@ -16,6 +16,6 @@ alias reboot='sudo reboot'
 alias lnscn='sudo arp-scan --localnet'
 alias wifils='nmcli d wifi list'
 alias wificon='nmcli d wifi connect'
-alias forget='ssh-keygen -f "/home/gfox/.ssh/known_hosts" -R'
+alias forget='ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R'
 alias gip='curl icanhazip.com'
 
