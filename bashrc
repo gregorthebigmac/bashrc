@@ -3,6 +3,10 @@ function scan() {
 	sudo arp-scan --interface "$1" --localnet;
 }
 
+function srch() {
+	apt search "$1" | more
+}
+
 # user-made aliases are below
 alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
@@ -18,4 +22,3 @@ alias wifils='nmcli d wifi list'
 alias wificon='nmcli d wifi connect'
 alias forget='ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R'
 alias gip='curl icanhazip.com'
-
