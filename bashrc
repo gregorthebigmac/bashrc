@@ -11,7 +11,7 @@ function srch() {
 alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
 alias update='sudo apt-get update && sudo apt upgrade -y && sudo apt autoremove -y'
-alias install='sudo apt-get install'
+alias install='sudo apt-get install -y'
 alias uninstall='sudo apt remove -y'
 alias search='apt search'
 alias sleep='systemctl suspend'
