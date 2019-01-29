@@ -7,6 +7,13 @@ function srch() {
 	apt search "$1" | more
 }
 
+function build() {
+	output_file="$1"
+	extension=".cpp"
+	input_file=$output_file$extension
+	g++ $input_file -o $output_file
+}
+
 # user-made distro-agnostic aliases
 alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
