@@ -23,10 +23,12 @@ alias gip='curl icanhazip.com'
 alias amiup='curl google.com'
 
 # debian-specific aliases
-alias update='sudo apt-get update && sudo apt upgrade -y && sudo apt autoremove -y'
 alias install='sudo apt-get install -y'
 alias uninstall='sudo apt remove -y'
+alias purge='sudo apt purge -y'
 alias search='apt search'
 alias sleep='systemctl suspend'
 alias wifils='nmcli d wifi list'
 alias wificon='nmcli d wifi connect'
+alias show='systemctl status'
+alias res='sudo systemctl restart'
