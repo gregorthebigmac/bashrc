@@ -14,6 +14,13 @@ function build() {
 	g++ $input_file -o $output_file
 }
 
+function gitclone() {
+	if [[ -z "$1" ]]; then
+		echo "I need a name for the repo as arg!"
+	else git clone https://github.com/gregorthebigmac/$1
+	fi
+}
+
 # user-made distro-agnostic aliases
 alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
