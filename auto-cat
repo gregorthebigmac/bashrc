@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "auto-cat: starting..."
+cat bashrc >> ~/.bashrc
+echo "appending bashrc to ~/.bashrc...[done]"
+
+if cat /bin/update; then
+    echo "auto-cat: /bin/update already exists! Not replacing it."
+else
+    cp update.sh ~/update.sh
+    mv ~/update.sh ~/update
+    sudo mv ~/update /bin/update
+    echo "update script moved to /bin/update. Printing results of"
+    echo "\$ cat /bin/update ..."
+    echo $(cat /bin/update)
+fi
