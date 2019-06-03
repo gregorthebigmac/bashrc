@@ -1,6 +1,28 @@
+#!/bin/bash
+
 # user-made functions
 function scan() {
-	sudo arp-scan --interface "$1" --localnet;
+	# Be sure to change the following interface variable values to that
+	# of your actual interface names!
+	wifi_interface="wlx04a1517077dc"
+	eno1_interface="enp0s25"
+	eno2_interface="enp4s0"
+	eno3_interface=""
+	eno4_interface=""
+
+	if [[ -z "$1" ]]; then
+	sudo arp-scan --localnet;
+	elif [[ "$1" == "wifi" ]]; then
+		sudo arp-scan --interface "$wifi_interface" --localnet
+	elif [[ "$1" == "eno1" ]]; then
+		sudo arp-scan --interface "$eno1_interface" --localnet
+	elif [[ "$1" == "eno2" ]]; then
+		sudo arp-scan --interface "$eno2_interface" --localnet
+	elif [[ "$1" == "eno3" ]]; then
+		sudo arp-scan --interface "$eno3_interface" --localnet
+	elif [[ "$1" == "eno4" ]]; then
+		sudo arp-scan --interface "$eno4_interface" --localnet
+	fi
 }
 
 function srch() {
@@ -17,7 +39,10 @@ function build() {
 function gitclone() {
 	if [[ -z "$1" ]]; then
 		echo "I need a name for the repo as arg!"
-	else git clone https://github.com/gregorthebigmac/$1
+	else
+		cd ~/git_repos
+		git clone https://github.com/gregorthebigmac/$1
+		cd $1
 	fi
 }
 
