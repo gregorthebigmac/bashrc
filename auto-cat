@@ -5,10 +5,10 @@ echo "auto-cat: starting..."
 echo "Should I put this in ~/.bashrc or ~/.kgbashrc ? [b/k]"
 read answer
 if [[ "$answer" == "b" ]]; then
-	filename="~/.bashrc"
+	filename="/home/$USER/.bashrc"
 	echo "appending bashrc to ~/.bashrc...[done]"
 elif [[ "$answer" == "k" ]]; then
-	filename="~/.kgbashrc"
+	filename="/home/$USER/.kgbashrc"
 	if [[ -f "$filename" ]]; then
 		echo "$filename already exists. Appending to ~/.kgbashrc"
 	else
