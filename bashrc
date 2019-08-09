@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # user-made functions
 function scan() {
 	# Be sure to change the following interface variable values to that
