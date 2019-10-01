@@ -1,26 +1,6 @@
 #!/bin/bash
 
-filename=""
-echo "auto-cat: starting..."
-echo "Should I put this in ~/.bashrc or ~/.kgbashrc ? [b/k]"
-read answer
-if [[ "$answer" == "b" ]]; then
-	filename="/home/$USER/.bashrc"
-	echo "appending bashrc to ~/.bashrc...[done]"
-elif [[ "$answer" == "k" ]]; then
-	filename="/home/$USER/.kgbashrc"
-	if [[ -f "$filename" ]]; then
-		echo "$filename already exists. Appending to ~/.kgbashrc"
-	else
-		echo -n "$filename doesn't exist. Creating..."
-		cp /home/$USER/.bashrc /home/$USER/.kgbashrc
-		echo "[done]"
-	fi
-else
-	echo "$answer wasn't an option. Try again."
-	exit 1
-fi
-cat bashrc >> "$filename"
+cat bashrc >> ~/.bash_aliases
 
 if cat /bin/update; then
     echo "auto-cat: /bin/update already exists! Not replacing it."
