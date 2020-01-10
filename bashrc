@@ -1,4 +1,11 @@
 # user-made functions
+function las() {
+	if [[ -z "$1" ]]; then
+		ls -la --color --group-directories-first | more
+	else ls -la "$1" --color --group-directories-first | more
+	fi
+}
+
 function scan() {
 	# Be sure to change the following interface variable values to that
 	# of your actual interface names!
@@ -45,7 +52,6 @@ function gitclone() {
 }
 
 # user-made distro-agnostic aliases
-alias las='ls -la --color --group-directories-first | more'
 alias bfr='source ~/.bashrc'
 alias lnscn='sudo arp-scan --localnet'
 alias forget='ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R'
@@ -62,3 +68,5 @@ alias wifils='nmcli d wifi list'
 alias wificon='nmcli d wifi connect'
 alias show='systemctl status'
 alias res='sudo systemctl restart'
+alias catbash='cat ~/.bash_aliases'
+alias nanobash='nano ~/.bash_aliases'
