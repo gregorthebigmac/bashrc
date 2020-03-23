@@ -10,15 +10,8 @@ echo "# Proxmox FREE updates" \
 echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" \
 >> /etc/apt/sources.list
 
-# Add lines about .bash_aliases in .bashrc
-echo "# if .bash_aliases exists, add it to .bashrc profile" \
->> ~/.bashrc
-echo "if [ -f ~/.bash_aliases ]; then" \
->> ~/.bashrc
-echo "        . ~/.bash_aliases" \
->> ~/.bashrc
-echo "fi" \
->> ~/.bashrc
+# Replace .bashrc with this one
+cat bashrc > ~/.bashrc
 
 # Run one-time updates and install git and curl, and then reboot.
 apt-get update \
