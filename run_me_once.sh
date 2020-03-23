@@ -4,8 +4,9 @@
 cd /etc/apt/sources.list.d/ && rm -rf ./*
 
 # Add Proxmox free updates to apt repo.
+cd /etc/apt/
 echo "# Proxmox FREE updates" \
->> /etc/apt/sources.list
+>> sources.list
 echo "deb http://download.proxmox.com/debian/pve buster pve-no-subscription" \
 >> /etc/apt/sources.list
 

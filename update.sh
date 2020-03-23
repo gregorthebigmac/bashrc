@@ -14,4 +14,3 @@ else
 	echo "That wasn't an option, so I'll drop back out to the terminal when finished."
 	apt-get update && apt upgrade -y && apt autoremove -y
 fi
-
