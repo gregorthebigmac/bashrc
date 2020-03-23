@@ -1,17 +1,16 @@
 #!/bin/bash
 
 # Remove Proxmox enterprise repo. It's the only file in this directory, by default.
-cd /etc/apt/sources.list.d/ && rm -rf ./*
+if cd /etc/apt/sources.list.d; then
+	rm -rf ./*
+fi
 
 # Add Proxmox free updates to apt repo.
 cd /etc/apt/
 echo "
 # Proxmox FREE updates
 deb http://download.proxmox.com/debian/pve buster pve-no-subscription" \
->> /etc/apt/sources.list
-
-# Replace .bashrc with this one
-cat bashrc > ~/.bashrc
+>> sources.list
 
 # Run one-time updates and install git and curl, and then reboot.
 apt-get update \

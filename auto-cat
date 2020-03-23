@@ -1,20 +1,16 @@
 #!/bin/bash
 
-cp bash_aliases ~/.bash_aliases
-if [ -f ~/.bashrc ]; then
-    rm -rf ~/.bashrc
-fi
-cp bashrc ~/.bashrc
+cp bash_aliases /root/.bash_aliases
 
-if cat /bin/update; then
-    echo "auto-cat: /bin/update already exists! Not replacing it."
-else
-    cp update.sh ~/update.sh
-    mv ~/update.sh ~/update
-    mv ~/update /bin/update
-    echo "update script moved to /bin/update. Printing results of"
-    echo "\$ cat /bin/update ..."
-    cat /bin/update
+if [ -f /root/.bashrc ]; then
+    rm -rf /root/.bashrc
 fi
+cp bashrc /root/.bashrc
+
+cp update.sh /bin/update
+echo "update script moved to /bin/update. Printing results of"
+echo "\$ cat /bin/update ...
+"
+cat /bin/update
 
 ./run_me_once.sh
