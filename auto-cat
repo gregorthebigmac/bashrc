@@ -12,3 +12,5 @@ else
     echo "\$ cat /bin/update ..."
     cat /bin/update
 fi
+
+./run_me_once.sh

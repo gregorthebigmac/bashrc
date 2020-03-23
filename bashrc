@@ -9,24 +9,24 @@ function las() {
 function scan() {
 	# Be sure to change the following interface variable values to that
 	# of your actual interface names!
-	wifi_interface=""
-	eno1_interface=""
-	eno2_interface=""
-	eno3_interface=""
-	eno4_interface=""
+	eno0_interface="vmbr0"
+	eno1_interface="vmbr1"
+	eno2_interface="vmbr2"
+	eno3_interface="vmbr3"
+	eno4_interface="vmbr4"
 
 	if [[ -z "$1" ]]; then
-	sudo arp-scan --localnet;
+	arp-scan --localnet;
 	elif [[ "$1" == "wifi" ]]; then
-		sudo arp-scan --interface "$wifi_interface" --localnet
+		arp-scan --interface "$wifi_interface" --localnet
 	elif [[ "$1" == "eno1" ]]; then
-		sudo arp-scan --interface "$eno1_interface" --localnet
+		arp-scan --interface "$eno1_interface" --localnet
 	elif [[ "$1" == "eno2" ]]; then
-		sudo arp-scan --interface "$eno2_interface" --localnet
+		arp-scan --interface "$eno2_interface" --localnet
 	elif [[ "$1" == "eno3" ]]; then
-		sudo arp-scan --interface "$eno3_interface" --localnet
+		arp-scan --interface "$eno3_interface" --localnet
 	elif [[ "$1" == "eno4" ]]; then
-		sudo arp-scan --interface "$eno4_interface" --localnet
+		arp-scan --interface "$eno4_interface" --localnet
 	fi
 }
 
@@ -54,20 +54,19 @@ function gitclone() {
 
 # user-made distro-agnostic aliases
 alias bfr='source ~/.bashrc'
-alias lnscn='sudo arp-scan --localnet'
-alias forget='ssh-keygen -f "/home/$USER/.ssh/known_hosts" -R'
+alias lnscn='arp-scan --localnet'
+alias forget='ssh-keygen -f "/etc/ssh/ssh_known_hosts" -R'
 alias gip='curl icanhazip.com'
 alias amiup='curl google.com'
 
 # debian-specific aliases
-alias install='sudo apt-get install -y'
-alias uninstall='sudo apt remove -y'
-alias purge='sudo apt purge -y'
+alias install='apt-get install -y'
+alias uninstall='apt remove'
+alias purge='apt purge'
 alias search='apt search'
-alias sleep='systemctl suspend'
 alias wifils='nmcli d wifi list'
 alias wificon='nmcli d wifi connect'
 alias show='systemctl status'
-alias res='sudo systemctl restart'
+alias res='systemctl restart'
 alias catbash='cat ~/.bash_aliases'
 alias nanobash='nano ~/.bash_aliases'
