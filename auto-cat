@@ -1,7 +1,10 @@
 #!/bin/bash
 
 cp bash_aliases ~/.bash_aliases
-cat bashrc > ~/.bashrc
+if [ -f ~/.bashrc ]; then
+    rm -rf ~/.bashrc
+fi
+cp bashrc ~/.bashrc
 
 if cat /bin/update; then
     echo "auto-cat: /bin/update already exists! Not replacing it."
