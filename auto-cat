@@ -7,7 +7,7 @@ if cat /bin/update; then
 else
     cp update.sh ~/update.sh
     mv ~/update.sh ~/update
-    sudo mv ~/update /bin/update
+    mv ~/update /bin/update
     echo "update script moved to /bin/update. Printing results of"
     echo "\$ cat /bin/update ..."
     cat /bin/update
