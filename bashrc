@@ -9,9 +9,9 @@ function las() {
 function scan() {
 	# Be sure to change the following interface variable values to that
 	# of your actual interface names!
-	wifi_interface="wlx04a1517077dc"
-	eno1_interface="enp0s25"
-	eno2_interface="enp4s0"
+	wifi_interface=""
+	eno1_interface=""
+	eno2_interface=""
 	eno3_interface=""
 	eno4_interface=""
 
@@ -31,7 +31,8 @@ function scan() {
 }
 
 function srch() {
-	apt search "$1" | more
+	# Be sure to put your software repo in here and modify where necessary
+	repo search "$1" | more
 }
 
 function build() {
