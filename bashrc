@@ -1,72 +1,47 @@
-# user-made functions
-function las() {
-	if [[ -z "$1" ]]; then
-		ls -la --color --group-directories-first | more
-	else ls -la "$1" --color --group-directories-first | more
-	fi
-}
+# ~/.bashrc: executed by bash(1) for non-login shells.
 
-function scan() {
-	# Be sure to change the following interface variable values to that
-	# of your actual interface names!
-	eno0_interface="vmbr0"
-	eno1_interface="vmbr1"
-	eno2_interface="vmbr2"
-	eno3_interface="vmbr3"
-	eno4_interface="vmbr4"
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
 
-	if [[ -z "$1" ]]; then
-	arp-scan --localnet;
-	elif [[ "$1" == "wifi" ]]; then
-		arp-scan --interface "$wifi_interface" --localnet
-	elif [[ "$1" == "eno1" ]]; then
-		arp-scan --interface "$eno1_interface" --localnet
-	elif [[ "$1" == "eno2" ]]; then
-		arp-scan --interface "$eno2_interface" --localnet
-	elif [[ "$1" == "eno3" ]]; then
-		arp-scan --interface "$eno3_interface" --localnet
-	elif [[ "$1" == "eno4" ]]; then
-		arp-scan --interface "$eno4_interface" --localnet
-	fi
-}
+# You may uncomment the following lines if you want `ls' to be colorized:
+# export LS_OPTIONS='--color=auto'
+# eval "`dircolors`"
+# alias ls='ls $LS_OPTIONS'
+# alias ll='ls $LS_OPTIONS -l'
+# alias l='ls $LS_OPTIONS -lA'
+#
+# Some more alias to avoid making mistakes:
+# alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
+# if .bash_aliases exists, add it to .bashrc profile
+if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+fi
+root@node1:~# nano .bashrc
+root@node1:~# cat .bashrc
+# ~/.bashrc: executed by bash(1) for non-login shells.
 
-function srch() {
-	# Be sure to put your software repo in here and modify where necessary
-	repo search "$1" | more
-}
+# Note: PS1 and umask are already set in /etc/profile. You should not
+# need this unless you want different defaults for root.
+# PS1='${debian_chroot:+($debian_chroot)}\h:\w\$ '
+# umask 022
 
-function build() {
-	output_file="$1"
-	extension=".cpp"
-	input_file=$output_file$extension
-	g++ $input_file -o $output_file
-}
+# You may uncomment the following lines if you want `ls' to be colorized:
+export LS_OPTIONS='--color=auto'
+eval "`dircolors`"
+alias ls='ls $LS_OPTIONS'
+alias ll='ls $LS_OPTIONS -l'
+alias l='ls $LS_OPTIONS -lA'
 
-function gitclone() {
-	if [[ -z "$1" ]]; then
-		echo "I need a name for the repo as arg!"
-	else
-		cd ~/git_repos
-		git clone https://github.com/gregorthebigmac/$1
-		cd $1
-	fi
-}
+# Some more alias to avoid making mistakes:
+alias rm='rm -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 
-# user-made distro-agnostic aliases
-alias bfr='source ~/.bashrc'
-alias lnscn='arp-scan --localnet'
-alias forget='ssh-keygen -f "/etc/ssh/ssh_known_hosts" -R'
-alias gip='curl icanhazip.com'
-alias amiup='curl google.com'
-
-# debian-specific aliases
-alias install='apt-get install -y'
-alias uninstall='apt remove'
-alias purge='apt purge'
-alias search='apt search'
-alias wifils='nmcli d wifi list'
-alias wificon='nmcli d wifi connect'
-alias show='systemctl status'
-alias res='systemctl restart'
-alias catbash='cat ~/.bash_aliases'
-alias nanobash='nano ~/.bash_aliases'
+# if .bash_aliases exists, add it to .bashrc profile
+if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat bashrc >> ~/.bash_aliases
+cat bash_aliases >> ~/.bash_aliases
 
 if cat /bin/update; then
     echo "auto-cat: /bin/update already exists! Not replacing it."

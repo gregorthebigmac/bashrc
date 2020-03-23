@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Remove Proxmox enterprise repo. It's the only file in this directory, by default.
-rm -rf /etc/apt/sources.list.d/*
+cd /etc/apt/sources.list.d/ && rm -rf ./*
 
 # Add Proxmox free updates to apt repo.
 echo "# Proxmox FREE updates" \
