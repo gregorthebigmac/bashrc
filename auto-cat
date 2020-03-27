@@ -3,14 +3,17 @@
 cp bash_aliases /root/.bash_aliases
 
 if [ -f /root/.bashrc ]; then
-    rm -rf /root/.bashrc
+	rm -rf /root/.bashrc
 fi
+
 cp bashrc /root/.bashrc
 
 cp update.sh /bin/update
-echo "update script moved to /bin/update. Printing results of"
-echo "\$ cat /bin/update ...
+
+echo "update script moved to /bin/update. Printing results of
+\$ cat /bin/update ...
 "
+
 cat /bin/update
 
 ./run_me_once.sh
