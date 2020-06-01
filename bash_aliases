@@ -47,7 +47,7 @@ function gitclone() {
 		echo "I need a name for the repo as arg!"
 	else
 		cd ~/git_repos
-		git clone https://github.com/gregorthebigmac/$1
+		git clone https://github.com/gregorthebigmac/$1 --recursive
 		cd $1
 	fi
 }
