@@ -62,7 +62,7 @@ alias amiup='curl google.com'
 # debian-specific aliases
 alias install='sudo apt-get install -y'
 alias uninstall='sudo apt remove -y'
-alias purge='sudo apt purge -y'
+alias purge='sudo apt purge'
 alias search='apt search'
 alias sleep='systemctl suspend'
 alias wifils='nmcli d wifi list'
